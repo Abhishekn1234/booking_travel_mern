@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    height: 100%;
+    min-width: 320px;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-950 antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-sky-200 text-slate-950;
+  }
+}
+
+@layer utilities {
+  .app-surface {
+    @apply bg-gradient-to-b from-sky-50 via-slate-50 to-white;
+  }
+
+  .app-shell {
+    background:
+      radial-gradient(900px 460px at 15% -10%, rgba(14, 165, 233, 0.16), transparent 60%),
+      radial-gradient(700px 420px at 90% 0%, rgba(99, 102, 241, 0.12), transparent 58%),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 1));
+  }
+
+  .app-card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+
+  .text-wrap-anywhere {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .app-button-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200 active:bg-sky-700;
+  }
+
+  .app-button-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200 active:bg-slate-100;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+  }
+
+  body {
+    background: white !important;
+    overflow: visible !important;
+  }
+
+  header,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .app-card {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .print-doc {
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue",
+      sans-serif;
+    color: #0f172a !important; /* slate-900 */
+    padding: 0 !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .screen-only {
+    display: none !important;
+  }
+
+  .print-header {
+    border-bottom: 2px solid #0f172a;
+    padding: 18px 0 14px 0;
+    margin-bottom: 14px;
+    break-after: avoid;
+  }
+
+  .print-title {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .print-subtitle {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #334155; /* slate-700 */
+  }
+
+  .print-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+    margin-top: 12px;
+  }
+
+  .print-box {
+    border: 1px solid #cbd5e1; /* slate-300 */
+    padding: 12px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #475569; /* slate-600 */
+  }
+
+  .print-value {
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .print-section {
+    margin-top: 14px;
+  }
+
+  .print-section-title {
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .print-days {
+    display: grid;
+    gap: 10px;
+  }
+
+  .print-day {
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .print-day-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px dashed #94a3b8; /* slate-400 */
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .print-day-title h3 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .print-day-date {
+    font-size: 11px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .print-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #0f172a;
+  }
+
+  .print-list li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}

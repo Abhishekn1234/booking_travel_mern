@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+.vite-cache/
+coverage/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Runtime uploads and generated files
+uploads/
+*.log
+logs/
+
+# Editor and OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local workspace leftovers
+.sixth/
+sample-booking.txt
+travel.txt
